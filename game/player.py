@@ -11,7 +11,7 @@ class Player:
         image_source = constants.IMAGE_SOURCE
         self.player = arcade.Sprite(image_source, constants.CHARACTER_SCALING)
         self.player.center_x = 64
-        self.player.center_y = 128
+        self.player.center_y = 95
 
         
         
