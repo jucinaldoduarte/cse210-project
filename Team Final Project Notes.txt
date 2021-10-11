@@ -1,0 +1,25 @@
+		General Approach
+
+Define game objective
+	- Maneuver the player to the end?
+	- Defeat enemies
+	- collect items or points
+
+Clearly define all players (actors) that will be featured in the game
+	- user player
+	- enemies or interacted moving players
+	- in-game objects and assets
+	- walls (which include platforms, ground, ceilings, etc)
+
+Decide on specific approaches
+	- Use a physics engine like Pymunk?
+	- 
+
+Develop Image assets
+	- Use pixilart?
+	- Animations?
+
+Architecture
+	- Maybe quickly develop certain aspects to make sure the game idea or part of idea actually works
+	- Clean up as we go
+	- Optimize it in the end if needed
