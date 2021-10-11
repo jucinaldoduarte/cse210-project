@@ -1,7 +1,6 @@
 import arcade
 from game import constants
 from game.player import Player
-from game.scene import Scene
 
 class Director(arcade.Window):    
 
@@ -11,9 +10,7 @@ class Director(arcade.Window):
         self._player_manager = Player()
 
         self._player_manager.player = None
-        self._player_manager.players = None
-
-        self._scene_manager = Scene()
+        self._player_manager.players = None        
 
         arcade.set_background_color(arcade.csscolor.PURPLE)     
         
@@ -28,5 +25,4 @@ class Director(arcade.Window):
         arcade.start_render()
            
         
-        self._scene_manager.draw_items()
         self._player_manager.players.draw()
