@@ -23,3 +23,22 @@ Architecture
 	- Maybe quickly develop certain aspects to make sure the game idea or part of idea actually works
 	- Clean up as we go
 	- Optimize it in the end if needed
+
+
+							Game to Make
+
+					Ninja Platformer
+
+					Pros									Cons
+
+			Fun, tutorial on documentation			Have to manage physics
+			Straight-forward gameplay
+
+
+						Top-Down Dungeon
+
+					Pros									Cons
+			
+			Minimal Physics to manage			How does the scene adjust? - 
+			Maybe Easier with assets?	
+			
