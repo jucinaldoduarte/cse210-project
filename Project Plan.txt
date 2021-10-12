@@ -1,0 +1,43 @@
+Program:    Ninja Run
+
+Technologies:
+            Python
+            Arcade Module (Python)
+            Tiled - Tile map editor
+            PixalArt - Pixel drawing Tool
+
+Features:
+
+        (2) Title Screen (Main Scene)
+
+            (2) Play button
+
+        (1) Game Scene
+            (1) User-controlled character
+            (1) Map Level 1
+            (1) Obstacles
+            (2) Collision detection
+            (2) Item interaction (collection)
+            (2) Life display
+            (2) Score display
+            (2) Sound effects
+            (3) Additional physics (reverse gravity)
+            (3) Enemies
+
+        (2) Win Scene
+
+            (2) Announcement
+            (3) Smiley face animation OR Sad face animation
+            (2) Restart button
+
+
+Timeline:
+        Alpha
+            #1 Priority items
+
+        Beta
+            #2 Priority items
+
+        Release Candidate
+            Bug fixes
+            #3 Priority items

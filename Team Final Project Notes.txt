@@ -1,3 +1,5 @@
+			NINJA Platformer
+		
 		General Approach
 
 Define game objective
@@ -15,30 +17,76 @@ Decide on specific approaches
 	- Use a physics engine like Pymunk?
 	- 
 
-Develop Image assets
-	- Use pixilart?
-	- Animations?
-
 Architecture
 	- Maybe quickly develop certain aspects to make sure the game idea or part of idea actually works
 	- Clean up as we go
 	- Optimize it in the end if needed
 
 
-							Game to Make
+										TASKS
 
-					Ninja Platformer
+					SECTION 1
 
-					Pros									Cons
+			Get basic scene, walls, few assets and ninja
+				- Create a map (level 1 for now)
+					- image for walls, ground, basic obstacles
+					- actors class (base class for all actors (walls etc))
+					- constants ()
+				
+				- Create sprite_list
+					- 
 
-			Fun, tutorial on documentation			Have to manage physics
-			Straight-forward gameplay
+
+			Basic animations and movement
+				- self.player.texture.append(arcade.load)
+
+			Sounds and general game functions (reset, etc)
+				- Sounds can come from :resources:sounds/
+				- 
+
+					SECTION 2
+
+			Collection of items for points?
+			Add opening and ending scenes
+			Add UI and Score
+
+					SECTION 3
+
+			Change in direction/orientation (walk on ceiling)
+
+			Adding enemies
+			Better animations for all actions (weapon use, jumping, etc)
+			Better environmental interaction (jumping off of walls? )
 
 
-						Top-Down Dungeon
 
-					Pros									Cons
-			
-			Minimal Physics to manage			How does the scene adjust? - 
-			Maybe Easier with assets?	
-			
+-----FOR ALPHA------
+
+CLASSES:
+	actor (Annabelle)
+		- For sprites like ninja, walls, etc
+
+	setup (Joel)
+		- For calling sprite objects
+		- Setting up camera
+		- setting up map?
+
+	director (everyone according to class assignments)
+		- Call setup
+		- on_draw method? to render Screen
+
+	input (Annabelle)
+		- on key press and Release
+
+	update (Meet again to figure out)
+		- moves the player with the physics engine
+		- if the player falls off the map
+		- see if they advance to next level
+		- looping through each coin (or item) and returning/adding score?
+
+Figure out Map (Everyone)
+
+Need pictures!
+ - For Now, use the :resources:images/ in arcade for ground (stone?)
+ - Tiled for scenes?
+ - Run and Idle animation for Ninja

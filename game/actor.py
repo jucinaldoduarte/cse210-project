@@ -1,7 +1,7 @@
 import arcade
 from game import constants
 
-class Player:
+class Actor:
     def __init__(self):
         self.players = None
         self.player = None

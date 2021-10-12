@@ -36,7 +36,7 @@ PLAYER_MOVEMENT_SPEED = 5
 # MAP
 MAP_PATH = ":resources:tiled_maps/map.json"
 
-
+#background color? 
 
 
 
