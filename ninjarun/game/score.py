@@ -1,10 +1,10 @@
 import arcade
 from game.sound import Sound
+
 class Score:
     def __init__(self):
         self.points = 0
         self._sound_manager = Sound()
-
 
     def count_points(self):        
         score_text = f"Score: {self.points}"
@@ -15,10 +15,8 @@ class Score:
             arcade.csscolor.WHITE,
             18,
         )
-
     
     def hits(self, hits):
-
         # Loop through each coin we hit (if any) and remove it
         for coin in hits:
             # Remove the coin
@@ -26,6 +24,7 @@ class Score:
             # Play a sound
             sound = self._sound_manager.set_sound("coin")
             arcade.play_sound(sound)
+            # Increment score
             self.points += 1
         
 

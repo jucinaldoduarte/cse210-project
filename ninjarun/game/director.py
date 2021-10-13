@@ -1,55 +1,61 @@
 import arcade
 from game import constants
-from game.player import Player
-from game.ground import Ground
-from game.scene import Scene
-from game.user_control import UserControl
 from game.camera import Camera
 from game.coin import Coin
-from game.sound import Sound
+from game.ground import Ground
+from game.player import Player
+from game.scene import Scene
 from game.score import Score
+from game.sound import Sound
+from game.user_control import UserControl
 
 class Director(arcade.Window):    
 
     def __init__(self):
         super().__init__(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, constants.SCREEN_TITLE)
 
-        self._player_manager = Player()
-        self._ground_manager = Ground()
-        self._scene_manager = Scene()
-        self._user_control_manager = UserControl()
+        # Instances
         self._camera_manager = Camera()
         self._coin_manager = Coin()
-        self._sound_manager = Sound()
+        self._ground_manager = Ground()
+        self._player_manager = Player()
+        self._scene_manager = Scene()
         self._score_manager = Score()
+        self._sound_manager = Sound()
+        self._user_control_manager = UserControl()
 
-        self._scene_manager.scene = None 
-        self._player_manager.player = None
-        self._user_control_manager.physics_engine = None
+        # Reset
         self._camera_manager.camera = None
+        self._camera_manager.gui_camera = None
+        self._player_manager.player = None  
+        self._scene_manager.scene = None
+        self._score_manager.points = 0 
+        self._user_control_manager.physics_engine = None
+                
+        # Background color
+        # arcade.set_background_color(arcade.csscolor.PURPLE)
 
-        #arcade.set_background_color(arcade.csscolor.PURPLE) 
-
-        self._camera_manager.gui_camera = None  
-        self._score_manager.points = 0  
-        self.background = None
+        # Image as background
+        self.background = arcade.load_texture(constants.BACKGROUND_SOURCE)
         
     def setup(self):
+        # Cameras
         self._camera_manager.camera = arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
         self._camera_manager.gui_camera = arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
+
+        # Initial score
         self._score_manager.points = 0
 
-        self.background = arcade.load_texture(constants.BACKGROUND_SOURCE)
-
+        # Sprite Lists to the scene
         self._scene_manager.scene = arcade.Scene()
         self._scene_manager.scene.add_sprite_list("Player")
         self._scene_manager.scene.add_sprite_list("Walls", use_spatial_hash=True)
 
-        # Set the player        
+        # Player       
         self._player_manager.set_player() 
         self._scene_manager.scene.add_sprite("Player", self._player_manager.player)
 
-        # Set the ground
+        # Ground
         for x in range(0, 12500, 64):
             self._ground_manager.set_ground(x)            
             self._scene_manager.scene.add_sprite("Walls", self._ground_manager.wall) 
@@ -58,7 +64,7 @@ class Director(arcade.Window):
             self._player_manager.player, self._scene_manager.scene.get_sprite_list("Walls"), constants.GRAVITY
         )
 
-        # Set coins
+        # Coins
         for x in range(128, 12500, 256):
             self._coin_manager.set_coin(x)
             self._scene_manager.scene.add_sprite("Coins", self._coin_manager.coin)  
@@ -67,7 +73,7 @@ class Director(arcade.Window):
         """Render the screen."""
         arcade.start_render()   
 
-        # Draw the background texture
+        # Draw the background
         arcade.draw_lrwh_rectangle_textured(0, 0, constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, self.background)
 
         self._camera_manager.camera.use()
@@ -122,14 +128,12 @@ class Director(arcade.Window):
 
         # Move the player with the physics engine
         self._user_control_manager.physics_engine.update()
-
         
         hits = arcade.check_for_collision_with_list(
             self._player_manager.player, self._scene_manager.scene.get_sprite_list("Coins")
         )
 
-        self._score_manager.hits(hits)
-        
+        self._score_manager.hits(hits)        
 
         # Position the camera
         self.center_camera_to_player()
