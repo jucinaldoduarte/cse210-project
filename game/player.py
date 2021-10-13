@@ -6,7 +6,6 @@ class Player:
         self.players = None
         self.player = None
 
-
     def set_player(self):
         image_source = constants.IMAGE_SOURCE
         self.player = arcade.Sprite(image_source, constants.CHARACTER_SCALING)
