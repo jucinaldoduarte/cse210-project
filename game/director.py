@@ -28,15 +28,18 @@ class Director(arcade.Window):
         self._user_control_manager.physics_engine = None
         self._camera_manager.camera = None
 
-        arcade.set_background_color(arcade.csscolor.PURPLE) 
+        #arcade.set_background_color(arcade.csscolor.PURPLE) 
 
         self._camera_manager.gui_camera = None  
         self._score_manager.points = 0  
+        self.background = None
         
     def setup(self):
         self._camera_manager.camera = arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
         self._camera_manager.gui_camera = arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
         self._score_manager.points = 0
+
+        self.background = arcade.load_texture(constants.BACKGROUND_SOURCE)
 
         self._scene_manager.scene = arcade.Scene()
         self._scene_manager.scene.add_sprite_list("Player")
@@ -62,12 +65,15 @@ class Director(arcade.Window):
 
     def on_draw(self):
         """Render the screen."""
-        arcade.start_render()        
+        arcade.start_render()   
+
+        # Draw the background texture
+        arcade.draw_lrwh_rectangle_textured(0, 0, constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT, self.background)
+
         self._camera_manager.camera.use()
         self._scene_manager.scene.draw()
         self._camera_manager.gui_camera.use()
-        self._score_manager.count_points()   
-        print(self._score_manager.points)     
+        self._score_manager.count_points()
 
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""

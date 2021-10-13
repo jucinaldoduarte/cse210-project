@@ -23,6 +23,7 @@ PLAYER_JUMP_SPEED = 20
 # The player
 #IMAGE_SOURCE = ":resources:images/animated_characters/robot/robot_fall.png"
 IMAGE_SOURCE = f"{image_directory}\\player\\ninja.png"
+BACKGROUND_SOURCE = f"{image_directory}\\background.png"
 
 # The crates
 CRATES = ":resources:images/tiles/boxCrate_double.png"
