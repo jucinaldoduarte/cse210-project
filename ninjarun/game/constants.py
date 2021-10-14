@@ -18,7 +18,8 @@ SHURIKEN_SCALING = 0.05
 
 # PLAYER
 # PLAYER_IMAGE = ":resources:images/animated_characters/robot/robot_fall.png"
-PLAYER_IMAGE = f"{image_directory}\\boy\\attack__001.png"
+PLAYER_IMAGE = f"{image_directory}\\boy\\attack__001.png" #for animations - Does it cycle through numbered files of certain type for action?
+ # like - provide path to image folder then loop through all images with a _idle tag?
 PLAYER_MOVEMENT_SPEED = 5
 GRAVITY = 1
 PLAYER_JUMP_SPEED = 20
