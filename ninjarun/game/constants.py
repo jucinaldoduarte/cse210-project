@@ -1,38 +1,40 @@
 import os
-import sys
 
-#Path to image directory                        
+# PATH                      
 absolute_path = os.path.abspath(__file__)
 this_directory = os.path.dirname(absolute_path)
 image_directory = os.path.join(this_directory, 'images')   
 
+# SCREEN
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Final Project"
 
-# Constants used to scale our sprites from their original size
-CHARACTER_SCALING = 1
+# SCALE FROM THEIR ORIGINAL SIZE
+CHARACTER_SCALING = 0.5
 TILE_SCALING = 0.5
 COIN_SCALING = 0.5
+SHURIKEN_SCALING = 0.05
 
-# Movement speed of player, in pixels per frame
+# PLAYER
+# PLAYER_IMAGE = ":resources:images/animated_characters/robot/robot_fall.png"
+PLAYER_IMAGE = f"{image_directory}\\boy\\attack__001.png"
 PLAYER_MOVEMENT_SPEED = 5
 GRAVITY = 1
 PLAYER_JUMP_SPEED = 20
+PLAYER_MOVEMENT_SPEED = 5
 
-# The player
-#IMAGE_SOURCE = ":resources:images/animated_characters/robot/robot_fall.png"
-IMAGE_SOURCE = f"{image_directory}\\player\\ninja.png"
+# BACKGROUND
 BACKGROUND_SOURCE = f"{image_directory}\\background.png"
 
-# The crates
+# CRATES
 CRATES = ":resources:images/tiles/boxCrate_double.png"
 
-# Coordinates to crates
+# COORDINATES TO CRATES
 CRATES_COORDINATE_LIST = [[512, 96], [256, 96], [768, 96]]
 
-# Movement speed of player, in pixels per frame
-PLAYER_MOVEMENT_SPEED = 5
+# SHURIKENS
+SHURIKEN_IMAGE = f"{image_directory}\\shuriken.png"
 
 # MAP
 MAP_PATH = ":resources:tiled_maps/map.json"

@@ -26,5 +26,16 @@ class Score:
             arcade.play_sound(sound)
             # Increment score
             self.points += 1
+
+    def hits_shuriken(self, hits):
+        # Loop through each coin we hit (if any) and remove it
+        for shuriken in hits:
+            # Remove the coin
+            shuriken.remove_from_sprite_lists()
+            # Play a sound
+            sound = self._sound_manager.set_sound("shuriken")
+            arcade.play_sound(sound)
+            # Decrement score
+            self.points -= 1
         
 
