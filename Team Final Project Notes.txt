@@ -29,16 +29,18 @@ Architecture
 
 			Get basic scene, walls, few assets and ninja
 				- Create a map (level 1 for now)
-					- image for walls, ground, basic obstacles
+					- image for walls, ground, basic obstacles X
 					- actors class (base class for all actors (walls etc))
-					- constants ()
+					- constants () X
 				
 				- Create sprite_list
 					- 
 
+			Create base class for all actors/sprites for image path, center_x, etc.
 
 			Basic animations and movement
 				- self.player.texture.append(arcade.load)
+				- Separate different types of animation into different folders for cycling
 
 			Sounds and general game functions (reset, etc)
 				- Sounds can come from :resources:sounds/
