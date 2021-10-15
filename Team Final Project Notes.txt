@@ -64,31 +64,18 @@ Architecture
 
 -----FOR ALPHA------
 
-CLASSES:
-	actor (Annabelle)
-		- For sprites like ninja, walls, etc
+Make a map
+ - Using Tiled
+ - Joel & Brigham
 
-	setup (Joel)
-		- For calling sprite objects
-		- Setting up camera
-		- setting up map?
+Animations for ninjas
+ - Annabelle - talk with Jucinaldo about it
 
-	director (everyone according to class assignments)
-		- Call setup
-		- on_draw method? to render Screen
+Physics a little (jump height, run speed)
+ - whoever wants and play with it in their own branch
 
-	input (Annabelle)
-		- on key press and Release
+Sounds
+ - Whoever, look for other sounds online
+ - Still have arcade resources, check there too
 
-	update (Meet again to figure out)
-		- moves the player with the physics engine
-		- if the player falls off the map
-		- see if they advance to next level
-		- looping through each coin (or item) and returning/adding score?
-
-Figure out Map (Everyone)
-
-Need pictures!
- - For Now, use the :resources:images/ in arcade for ground (stone?)
- - Tiled for scenes?
- - Run and Idle animation for Ninja
+	
