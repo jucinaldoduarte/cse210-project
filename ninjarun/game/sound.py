@@ -1,16 +1,18 @@
 import arcade
 
-class Sound():
+class Sound:
     def __init__(self):
-        pass
+        self.sound = None
 
-    def set_sound(self, action):
-        if action.lower() == "coin":
-            return arcade.load_sound(":resources:sounds/coin1.wav")
-        elif action.lower() == "jump":
-            return arcade.load_sound(":resources:sounds/jump1.wav")
-       
+    def get_sound(self, action=None):
+        if action == "coin":
+            sound_source = ":resources:sounds/coin1.wav"
+        elif action == "jump":
+            sound_source = ":resources:sounds/jump1.wav"
+        elif action == "gameover":
+            sound_source = ":resources:sounds/gameover1.wav"
+        else:
+            sound_source = ""
+        self.sound = arcade.load_sound(sound_source)
 
         
-
-

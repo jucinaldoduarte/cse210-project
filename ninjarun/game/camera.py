@@ -3,9 +3,8 @@ from game import constants
 
 class Camera:
     def __init__(self):
-        self.camera = arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
-        self.gui_camera = None
-        
+        self.camera_to_player = None
+        self.camera_to_gui = None
 
-    
-
+    def set_camera(self):
+        return arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
