@@ -1,45 +1,39 @@
 import os
 
 # PATH                      
-absolute_path = os.path.abspath(__file__)
-this_directory = os.path.dirname(absolute_path)
-image_directory = os.path.join(this_directory, 'images')   
+ABSOLUTE_PATH = os.path.abspath(__file__)
+THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
+IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
 
-# SCREEN
+# Constants
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
-SCREEN_TITLE = "Final Project"
+SCREEN_TITLE = "Platformer"
 
-# SCALE FROM THEIR ORIGINAL SIZE
-CHARACTER_SCALING = 0.5
+# Constants used to scale our sprites from their original size
 TILE_SCALING = 0.5
-COIN_SCALING = 0.5
-SHURIKEN_SCALING = 0.05
 
-# PLAYER
-# PLAYER_IMAGE = ":resources:images/animated_characters/robot/robot_fall.png"
-PLAYER_IMAGE = f"{image_directory}\\boy\\attack__001.png"
-PLAYER_MOVEMENT_SPEED = 5
-GRAVITY = 1
-PLAYER_JUMP_SPEED = 20
-PLAYER_MOVEMENT_SPEED = 5
+#CHARACTER_SCALING = TILE_SCALING * 2
+SCALE = 0.2
+COIN_SCALING = TILE_SCALING
+SPRITE_PIXEL_SIZE = 128
+GRID_PIXEL_SIZE = SPRITE_PIXEL_SIZE * TILE_SCALING
 
-# BACKGROUND
-BACKGROUND_SOURCE = f"{image_directory}\\background.png"
+# Movement speed of player, in pixels per frame
+PLAYER_MOVEMENT_SPEED = 7
+GRAVITY = 1.5
+PLAYER_JUMP_SPEED = 30
 
-# CRATES
-CRATES = ":resources:images/tiles/boxCrate_double.png"
+PLAYER_START_X = SPRITE_PIXEL_SIZE * TILE_SCALING * 2
+PLAYER_START_Y = SPRITE_PIXEL_SIZE * TILE_SCALING * 1
 
-# COORDINATES TO CRATES
-CRATES_COORDINATE_LIST = [[512, 96], [256, 96], [768, 96]]
+# Constants used to track if the player is facing left or right
+RIGHT = 0
+LEFT_FACING = 1
 
-# SHURIKENS
-SHURIKEN_IMAGE = f"{image_directory}\\shuriken.png"
-
-# MAP
-MAP_PATH = ":resources:tiled_maps/map.json"
-
-
-
-
-
+LAYER_NAME_MOVING_PLATFORMS = "Moving Platforms"
+LAYER_NAME_PLATFORMS = "Platforms"
+LAYER_NAME_COINS = "Coins"
+LAYER_NAME_BACKGROUND = "Background"
+LAYER_NAME_LADDERS = "Ladders"
+LAYER_NAME_PLAYER = "Player"
