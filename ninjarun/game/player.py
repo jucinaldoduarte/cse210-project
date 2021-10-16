@@ -1,7 +1,6 @@
 import arcade
 from game import constants
 
-
 class Player(arcade.Sprite):
     """Player Sprite"""
 

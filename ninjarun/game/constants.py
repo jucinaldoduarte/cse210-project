@@ -4,6 +4,7 @@ import os
 ABSOLUTE_PATH = os.path.abspath(__file__)
 THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
 IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
+SOUND_DIR = os.path.join(THIS_DIRECTORY, 'sounds') 
 
 # Constants
 SCREEN_WIDTH = 1000
@@ -37,3 +38,5 @@ LAYER_NAME_COINS = "Coins"
 LAYER_NAME_BACKGROUND = "Background"
 LAYER_NAME_LADDERS = "Ladders"
 LAYER_NAME_PLAYER = "Player"
+LAYER_NAME_FOREGROUND = "Foreground"
+LAYER_NAME_DONT_TOUCH = "Don't Touch"
