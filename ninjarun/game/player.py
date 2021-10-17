@@ -29,15 +29,15 @@ class Player(arcade.Sprite):
         self.slide = False
 
         # Default images
-        self.image_attack = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\attack__000.png")
-        self.image_climb = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\climb__000.png")
-        self.image_dead = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\dead__000.png")
-        self.image_glide = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\glide__000.png")        
-        self.image_idle = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\idle__000.png")
-        self.image_jump = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump__000.png")
-        self.image_jump_attack = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump_attack__000.png")
-        self.image_jump_throw = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump_throw__000.png")
-        self.image_jump_slide = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\slide__000.png")
+        self.image_attack = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/attack__000.png")
+        self.image_climb = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/climb__000.png")
+        self.image_dead = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/dead__000.png")
+        self.image_glide = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/glide__000.png")        
+        self.image_idle = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/idle__000.png")
+        self.image_jump = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump__000.png")
+        self.image_jump_attack = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump_attack__000.png")
+        self.image_jump_throw = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump_throw__000.png")
+        self.image_jump_slide = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/slide__000.png")
 
         # Textures lists
         self.attack_textures = []
@@ -54,43 +54,43 @@ class Player(arcade.Sprite):
         
         # Load textures - WE NEED TO CHANGE TO ONE FUNCTION
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\attack__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/attack__00{i}.png")
             self.attack_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\climb__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/climb__00{i}.png")
             self.climb_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\dead__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/dead__00{i}.png")
             self.dead_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\glide__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/glide__00{i}.png")
             self.glide_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\idle__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/idle__00{i}.png")
             self.idle_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump__00{i}.png")
             self.jump_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump_attack__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump_attack__00{i}.png")
             self.jump_attack_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\jump_throw__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/jump_throw__00{i}.png")
             self.jump_throw_textures.append(texture)
 
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\slide__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/slide__00{i}.png")
             self.slide_textures.append(texture)        
         
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\run__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/run__00{i}.png")
             self.walk_textures.append(texture)
        
         # Initial image
@@ -107,7 +107,7 @@ class Player(arcade.Sprite):
 
     def load_image(self, action):       
         for i in range(10):
-            texture = self.get_image(f"{constants.IMAGE_DIR }\\{self.gender}\\run__00{i}.png")
+            texture = self.get_image(f"{constants.IMAGE_DIR }/{self.gender}/run__00{i}.png")
             if action == "walk":
                 self.walk_textures.append(texture)        
 
@@ -130,7 +130,7 @@ class Player(arcade.Sprite):
             if self.present_texture > 9:
                 self.present_texture = 0
         if self.climb:
-            self.texture = self.climb_textures[self.present_texture // 4]
+            self.texture = self.climb_textures[self.present_texture / 4] #check this out
             return
 
         # Dead
