@@ -48,6 +48,9 @@ class Director(arcade.Window):
         # Scene
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)
 
+        # Add foreground to scene
+            #self._scene_manager.scene.add_sprite_list_before("Player", constants.LAYER_NAME_FOREGROUND)
+        self._scene_manager.scene.add_sprite_list(constants.LAYER_NAME_FOREGROUND)
         # Add player to scene
         self._scene_manager.add_player(self._player)
 
@@ -224,6 +227,31 @@ class Director(arcade.Window):
             self._sound_manager.get_sound("coin")
             arcade.play_sound(self._sound_manager.sound)
 
+        # Did the player fall off of the map?
+        if self._player.center_y < -100:
+            self._player.center_x = constants.PLAYER_START_X
+            self._player.center_y = constants.PLAYER_START_Y
+
+            self._sound_manager.get_sound("gameover")
+
+        # If the player touches something they shouldn't
+        """
+        if arcade.check_for_collision_with_list(
+            self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_DONT_TOUCH)
+        ):
+            self._player.change_x = 0
+            self._player.change_y = 0
+            self._player.center_x = constants.PLAYER_START_X
+            self._player.center_y = constants.PLAYER_START_Y
+
+            self._sound_manager.get_sound("gameover")
+
+        # Check if user got to the end of the level
+        if self._player.center_x >= self._map_manager.end_map:
+            # Advance to the next level
+            pass
+            # Load the next level
+        """
         # Position the camera
         self.center_camera_to_player()
 
