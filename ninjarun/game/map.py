@@ -13,9 +13,6 @@ class Map:
              constants.LAYER_NAME_GROUND: {
                 "use_spatial_hash": True,
             },
-             constants.LAYER_NAME_GROUND: {
-                "use_spatial_hash": True,
-            },
             constants.LAYER_NAME_PLATFORMS: {
                 "use_spatial_hash": True,
             },
