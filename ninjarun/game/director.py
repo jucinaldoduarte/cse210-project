@@ -48,12 +48,14 @@ class Director(arcade.Window):
         # Scene
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)
 
-        # Add foreground to scene
-            #self._scene_manager.scene.add_sprite_list_before("Player", constants.LAYER_NAME_FOREGROUND)
-        self._scene_manager.scene.add_sprite_list(constants.LAYER_NAME_FOREGROUND)
+        
         # Add player to scene
         self._scene_manager.add_player(self._player)
 
+        # Add foreground to scene
+            # self._scene_manager.scene.add_sprite_list_before("Player", constants.LAYER_NAME_FOREGROUND)
+        self._scene_manager.scene.add_sprite_list(constants.LAYER_NAME_FOREGROUND)
+        
         # Camera to player
         self._camera_manager.camera_to_player = self._camera_manager.set_camera()       
 
@@ -117,7 +119,7 @@ class Director(arcade.Window):
     def on_key_press(self, key, modifiers):
         """Called whenever a key is pressed."""
 
-        if key == arcade.key.UP or key == arcade.key.W:
+        if key == arcade.key.UP or key == arcade.key.W or key == arcade.key.SPACE:
             self.up_pressed = True
         elif key == arcade.key.DOWN or key == arcade.key.S:
             self.down_pressed = True

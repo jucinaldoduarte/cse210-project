@@ -6,10 +6,13 @@ class Map:
         
         # self.name = f":resources:tiled_maps/map_with_ladders.json"
         self.map_path = constants.MAP_DIR
-        self.name = f"{self.map_path}/level1.json"
+        self.name = f"{self.map_path}/test32.json"
         
 
         self.layer_options = {
+             constants.LAYER_NAME_GROUND: {
+                "use_spatial_hash": True,
+            },
             constants.LAYER_NAME_PLATFORMS: {
                 "use_spatial_hash": True,
             },
@@ -17,9 +20,6 @@ class Map:
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_BACKGROUND: {
-                "use_spatial_hash": True,
-            },
-            constants.LAYER_NAME_GROUND: {
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_LADDERS: {

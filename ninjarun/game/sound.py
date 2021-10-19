@@ -7,7 +7,7 @@ class Sound:
 
     def get_sound(self, action=None):
         if action == "coin":
-            sound_source = ":resources:sounds/coin1.wav"
+            sound_source = f"{constants.SOUND_DIR}/money_1.mp3"
         elif action == "jump":
             sound_source = f"{constants.SOUND_DIR}/female_kiai_2.mp3"
         elif action == "gameover":
