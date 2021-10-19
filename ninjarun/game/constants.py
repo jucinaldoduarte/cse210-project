@@ -1,15 +1,16 @@
-import os
+from pathlib import Path
 
-# PATH                      
-ABSOLUTE_PATH = os.path.abspath(__file__)
-THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
-IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
-SOUND_DIR = os.path.join(THIS_DIRECTORY, 'sounds') 
+ROOT = Path(__file__).parent
 
 # Constants
+L1 = "Platforms"
+L2 = "Coins"
+L3 = "platforms"
+L4 = "background-1"
+
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
-SCREEN_TITLE = "Platformer"
+SCREEN_TITLE = "Ninja Run"
 
 # Constants used to scale our sprites from their original size
 TILE_SCALING = 0.5
@@ -38,5 +39,6 @@ LAYER_NAME_COINS = "Coins"
 LAYER_NAME_BACKGROUND = "Background"
 LAYER_NAME_LADDERS = "Ladders"
 LAYER_NAME_PLAYER = "Player"
-LAYER_NAME_FOREGROUND = "Foreground"
-LAYER_NAME_DONT_TOUCH = "Don't Touch"
+
+BACKGROUND = f"{ROOT}/images/background.png"
+
