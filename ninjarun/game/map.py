@@ -4,7 +4,9 @@ import arcade
 class Map:
     def __init__(self):
         
-        self.name = f":resources:tiled_maps/map_with_ladders.json"
+        # self.name = f":resources:tiled_maps/map_with_ladders.json"
+        self.map_path = constants.MAP_DIR
+        self.name = f"{self.map_path}/level1.json"
         
 
         self.layer_options = {
@@ -12,6 +14,12 @@ class Map:
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_MOVING_PLATFORMS: {
+                "use_spatial_hash": True,
+            },
+            constants.LAYER_NAME_BACKGROUND: {
+                "use_spatial_hash": True,
+            },
+            constants.LAYER_NAME_GROUND: {
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_LADDERS: {
