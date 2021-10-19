@@ -66,6 +66,7 @@ Architecture
 
 Make a map
  - Using Tiled
+ - Talk to other guy, plug tileset in
  - Joel & Brigham
 
 Animations for ninjas
@@ -75,7 +76,7 @@ Physics a little (jump height, run speed)
  - whoever wants and play with it in their own branch
 
 Sounds
- - Whoever, look for other sounds online
+ - Whoever, look for other sounds online - a few loaded
  - Still have arcade resources, check there too
 
 	

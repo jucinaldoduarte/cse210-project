@@ -55,7 +55,6 @@ class Player(arcade.Sprite):
         self.jump_throw_textures = []
         self.slide_textures = []
         self.walk_textures = []
-        self.walk_textures = []
         
         # Load textures - WE NEED TO CHANGE TO ONE FUNCTION
         for i in range(10):
