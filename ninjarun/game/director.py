@@ -94,7 +94,7 @@ class Director(arcade.Window):
             ):
                 self._player.change_y = constants.PLAYER_JUMP_SPEED
                 self._key_manager.jump_needs_reset = True
-                self._sound_manager.get_sound("jump")
+                self._sound_manager.get_sound("jump")                
                 arcade.play_sound(self._sound_manager.sound)
         elif self._key_manager.down_pressed and not self._key_manager.up_pressed:
             if self._physics_engine_manager.engine.is_on_ladder():

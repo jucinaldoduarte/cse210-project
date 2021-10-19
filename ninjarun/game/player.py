@@ -9,7 +9,7 @@ class Player(arcade.Sprite):
         
         super().__init__()
 
-        self.gender = "boy"
+        self.gender = "girl"
         self.weapon = None        
         self.scale = constants.SCALE
         self.direction = constants.RIGHT  

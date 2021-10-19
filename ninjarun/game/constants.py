@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 ROOT = Path(__file__).parent
 
@@ -7,6 +8,13 @@ L1 = "Platforms"
 L2 = "Coins"
 L3 = "platforms"
 L4 = "background-1"
+
+# PATH                      
+ABSOLUTE_PATH = os.path.abspath(__file__)
+THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
+
+IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
+SOUND_DIR = os.path.join(THIS_DIRECTORY, 'sounds') 
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 650
