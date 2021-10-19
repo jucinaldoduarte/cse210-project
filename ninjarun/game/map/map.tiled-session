@@ -129,6 +129,9 @@
         "C:/Users/jucin/Dropbox/BYU/2021 - Fall/CSE 210/cse210-project/ninjarun/game/tilemaps/test32.json#kunais": {
             "dynamicWrapping": true
         },
+        "C:/Users/jucin/Dropbox/BYU/2021 - Fall/CSE 210/cse210-project/ninjarun/game/tilemaps/test32.json#pixel_platform_03_tileset_final": {
+            "dynamicWrapping": false
+        },
         "C:/Users/jucin/Dropbox/BYU/2021 - Fall/CSE 210/dark forest castle.tsx": {
             "dynamicWrapping": false,
             "scaleInDock": 1

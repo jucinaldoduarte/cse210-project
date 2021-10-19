@@ -239,7 +239,7 @@ class Director(arcade.Window):
             #self.background = constants.BACKGROUND_GAME_OVER
             self._sound_manager.get_sound("gameover")
             arcade.play_sound(self._sound_manager.sound)
-            if self._score_manager.score > 1:
+            if self._score_manager.score >= 1:
                 self._score_manager.score -= 1
 
         # Did the player fall off of the map?
