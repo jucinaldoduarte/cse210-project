@@ -6,8 +6,7 @@ class Map:
         
         # self.name = f":resources:tiled_maps/map_with_ladders.json"
         self.map_path = constants.MAP_DIR
-        self.name = f"{self.map_path}/test32.json"
-        
+        self.name = f"{self.map_path}/test32.json"        
 
         self.layer_options = {
              constants.LAYER_NAME_GROUND: {
@@ -26,6 +25,9 @@ class Map:
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_COINS: {
+                "use_spatial_hash": True,
+            },
+            constants.LAYER_NAME_KUNAI: {
                 "use_spatial_hash": True,
             },
             constants.LAYER_NAME_DONT_TOUCH: {

@@ -185,6 +185,8 @@ class Director(arcade.Window):
         # Update walls, used with moving platforms
         self._scene_manager.scene.update([constants.LAYER_NAME_MOVING_PLATFORMS])
 
+        self._scene_manager.scene.update([constants.LAYER_NAME_KUNAI])
+
         # See if the moving wall hit a boundary and needs to reverse direction.
         for wall in self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_MOVING_PLATFORMS):
 
@@ -214,6 +216,10 @@ class Director(arcade.Window):
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_COINS)
         )
 
+        kunai_hit_list = arcade.check_for_collision_with_list(
+            self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI) 
+        )
+
         # Loop through each coin we hit (if any) and remove it
         for coin in coin_hit_list:
 
@@ -228,6 +234,13 @@ class Director(arcade.Window):
             coin.remove_from_sprite_lists()
             self._sound_manager.get_sound("coin")
             arcade.play_sound(self._sound_manager.sound)
+
+        for kunai in kunai_hit_list:
+            #self.background = constants.BACKGROUND_GAME_OVER
+            self._sound_manager.get_sound("gameover")
+            arcade.play_sound(self._sound_manager.sound)
+            if self._score_manager.score > 1:
+                self._score_manager.score -= 1
 
         # Did the player fall off of the map?
         if self._player.center_y < -100:
