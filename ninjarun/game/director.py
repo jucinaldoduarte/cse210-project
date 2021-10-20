@@ -174,7 +174,7 @@ class Director(arcade.Window):
             self.process_keychange()
         else:
             self._player.is_on_ladder = False
-            self.process_keychange()
+            self.process_keychange()            
 
         # Update Animations
         self._scene_manager.scene.update_animation(
@@ -239,8 +239,10 @@ class Director(arcade.Window):
         for kunai in kunai_hit_list:            
             self._sound_manager.get_sound("kunai")
             
+            """
             if self._score_manager.score >= 1:
                 self._score_manager.score -= 1
+            """
 
         # Did the player fall off of the map?
         if self._player.center_y < -100:

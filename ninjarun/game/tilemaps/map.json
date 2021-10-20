@@ -17,20 +17,6 @@
          "y":0
         }, 
         {
-         "compression":"zlib",
-         "data":"eJztwTEBAAAAwqD1T+1pCaAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4Aa7gAAB",
-         "encoding":"base64",
-         "height":40,
-         "id":6,
-         "name":"Ladders",
-         "opacity":1,
-         "type":"tilelayer",
-         "visible":true,
-         "width":300,
-         "x":0,
-         "y":0
-        }, 
-        {
          "draworder":"topdown",
          "id":11,
          "name":"Kunais",
@@ -342,6 +328,204 @@
                  "width":32,
                  "x":1312.68408259345,
                  "y":1025.10165545122
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":53,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1630.66666666667,
+                 "y":918
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":54,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1966.66666666667,
+                 "y":856.666666666667
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":55,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":2684.66666666667,
+                 "y":1148
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":56,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":3600.66666666667,
+                 "y":1140.66666666667
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":57,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":4109.33333333333,
+                 "y":1106.66666666667
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":58,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":5036,
+                 "y":1135.33333333333
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":59,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":5684.66666666667,
+                 "y":1104
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":60,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":6552.66666666667,
+                 "y":1103.33333333333
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":61,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":7222.66666666667,
+                 "y":1043.33333333333
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":62,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":8373.33333333333,
+                 "y":1074
+                }, 
+                {
+                 "gid":231,
+                 "height":32,
+                 "id":63,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"Points",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":9076,
+                 "y":1045.33333333333
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -401,11 +585,25 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2k1q20AABlAbmpYm3QVygSaQZX7adU\/kOptcozi9QHO3nCK7jECCyaCRNJZkq+Q9+ECeWBrZHn0WOKsVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMD0vq7bx79lxgEO5Snke8hlyFVmOx3LjTfbwDI9HvsEBtplxp8nnufPxMcDpvO\/9NW\/lrHTtb6Cj+QQfZW7NxqzX9VVc\/QVsFyH6Ku2e6Mx+zVdpa\/gY5mjr9L7opK+6rsXi7tKX413Gd7DizrXfkM9qOq3or\/R41Pvf685+irtp5K+6npu2lVL6quTaK3tMuMnhesx978Zbc72WOtxV\/V11mudOZyv32eJbkJuQ+5ach\/yI+Rn4TGfo+14TS\/FbsD2UPusz0Z8HVR99bvONuQhepxm0\/G3ocnNsemZe8y5bJO544w9bptPmfFV5hhj3tfcvl2f5T7z9e2zLThWfG5Trqm08x4nzK\/1sEw559BU34NpPif5UqfkuNW9w0uddPsYr7PJ2LVceu3l1naz7vY9h03PHJtV93Xc19dtKTVmrqGfz5R90PU9Unrs0m5On9u1f\/OamzV9fqTukPnzBnHnFOc=",
+         "data":"eJzt2k1u00AABtBEoiAKu0pcgCKx5HfNiULY9Boo9AL0bogDdMmOsWRLw8hje+KxHaT3pE9xprHHSSZfLKW7HQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAfc\/3\/eMvM+MAa\/kR8jrkNuRNZjsdy41328Blutv6BCY6ZcYfKs\/zvfLxgHr+l7762TN2vddXW\/qd3MLS1uir3LXRnP2arlqir5juMQqsYY2+6rs2mrNf11X6alv6irUt0VfpdVFJX41di8Vdpa\/muw2v4as2bwt\/Q31MbinT\/FZ0H92\/9hv2qCX6Ku2nkr4aemzaVZfUV1fRWjtlxq8K12PufzP6vDhjrcddNdZZf9rEavXVzf7fXKJ3Ie9DPvTkY8inkM+Fx3yItuM1fSlOE7anOmd9duLPQdNXX9scQ75F99McBv42Nbk5DiNzzzmXYzJ3nLnH7fMkM77LHGPO65rbd+i9PGe+sX2OBceKz63mmko7765ivuynpeacU9N8D6Z5muRZm5LjNtcOv9qk21s8zy5z13LpZy+3trt1d+45HEbmOOyGP8djfd2XUnPmmvr+1OyDoe+R0mOXdnP62KH9u+fcrembjbpDls9fk0YgGw==",
          "encoding":"base64",
          "height":40,
          "id":1,
          "name":"Platforms",
+         "opacity":1,
+         "type":"tilelayer",
+         "visible":true,
+         "width":300,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "compression":"zlib",
+         "data":"eJzt1DENACAMAMEiBf\/uqoCJGQaSpuROwU8fAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBeVgcAXPIroIv9qzlKMwCO\/AoAAP6wAPGzBA0=",
+         "encoding":"base64",
+         "height":40,
+         "id":6,
+         "name":"Ladders",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -428,7 +626,7 @@
          "y":0
         }],
  "nextlayerid":12,
- "nextobjectid":53,
+ "nextobjectid":64,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.7.2",

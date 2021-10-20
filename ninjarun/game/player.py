@@ -55,24 +55,27 @@ class Player(arcade.Sprite):
         self.jump_attack_textures = []
         self.jump_throw_textures = []
         self.slide_textures = []
-        self.walk_textures = []         
+        self.walk_textures = [] 
+
+        # Load textures for climbing       
+        texture = arcade.load_texture(f"{self.root}/images/{self.gender}/climb__000.png")
+        self.climb_textures.append(texture)
+
+        texture = arcade.load_texture(f"{self.root}/images/{self.gender}/climb__001.png")        
+        self.climb_textures.append(texture)        
        
+        # Load the another textures
         for i in range(10):           
             texture = self.get_image(f"{self.root}/images/{self.gender}/run__00{i}.png")
-            self.attack_textures.append(texture)            
-        """
-        for i in range(10):
-            texture = f"{self.root}/images/{self.gender}/climb__00{i}.png")
-            self.climb_textures.append(texture)
-        """ 
+            self.attack_textures.append(texture)           
+       
         for i in range(10):           
             texture = self.get_image(f"{self.root}/images/{self.gender}/dead__00{i}.png")
             self.dead_textures.append(texture)            
 
         for i in range(10):           
             texture = self.get_image(f"{self.root}/images/{self.gender}/glide__00{i}.png")
-            self.glide_textures.append(texture)
-            
+            self.glide_textures.append(texture)            
 
         for i in range(10):            
             texture = self.get_image(f"{self.root}/images/{self.gender}/idle__00{i}.png")
@@ -102,14 +105,7 @@ class Player(arcade.Sprite):
         self.texture = self.image_idle[0]
 
         # Hit box
-        self.hit_box = self.texture.hit_box_points
-
-        # Load textures for climbing
-        self.climb_textures = []
-        texture = arcade.load_texture(f"{self.root}/images/{self.gender}/climb__000.png")
-        self.climb_textures.append(texture)
-        texture = arcade.load_texture(f"{self.root}/images/{self.gender}/climb__001.png")        
-        self.climb_textures.append(texture)
+        self.hit_box = self.texture.hit_box_points        
 
     def get_image(self, filename):
         return [
