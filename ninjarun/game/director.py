@@ -47,7 +47,6 @@ class Director(arcade.Window):
 
         # Scene
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)
-
         
         # Add player to scene
         self._scene_manager.add_player(self._player)
@@ -182,9 +181,10 @@ class Director(arcade.Window):
             delta_time, [constants.LAYER_NAME_COINS, constants.LAYER_NAME_BACKGROUND, constants.LAYER_NAME_PLAYER]
         )
 
-        # Update walls, used with moving platforms
+        # Update moving platforms
         self._scene_manager.scene.update([constants.LAYER_NAME_MOVING_PLATFORMS])
 
+        # Update kunais
         self._scene_manager.scene.update([constants.LAYER_NAME_KUNAI])
 
         # See if the moving wall hit a boundary and needs to reverse direction.
@@ -216,6 +216,7 @@ class Director(arcade.Window):
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_COINS)
         )
 
+        # See if we hit kunais
         kunai_hit_list = arcade.check_for_collision_with_list(
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI) 
         )
@@ -235,10 +236,9 @@ class Director(arcade.Window):
             self._sound_manager.get_sound("coin")
             arcade.play_sound(self._sound_manager.sound)
 
-        for kunai in kunai_hit_list:
-            #self.background = constants.BACKGROUND_GAME_OVER
-            self._sound_manager.get_sound("gameover")
-            arcade.play_sound(self._sound_manager.sound)
+        for kunai in kunai_hit_list:            
+            self._sound_manager.get_sound("kunai")
+            
             if self._score_manager.score >= 1:
                 self._score_manager.score -= 1
 
