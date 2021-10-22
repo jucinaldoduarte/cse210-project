@@ -1,4 +1,3 @@
-import os
 import arcade
 from game import constants
 from game.player import Player
@@ -68,7 +67,10 @@ class Director(arcade.Window):
         self._scene_manager.scene = None        
         self._physics_engine_manager.engine = None        
         self._camera_manager.camera_to_player = None
-        self._camera_manager.camera_to_gui = None             
+        self._camera_manager.camera_to_gui = None 
+        self._red_background = False
+
+              
 
     def setup(self):  
         """Starts the game loop to control the sequence of play.
@@ -239,7 +241,8 @@ class Director(arcade.Window):
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_COINS))
       
         kunai_hit_list = arcade.check_for_collision_with_list(
-            self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI))
+            self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI))        
+        
         
         for coin in coin_hit_list:
             if "Points" not in coin.properties:
@@ -251,15 +254,19 @@ class Director(arcade.Window):
             coin.remove_from_sprite_lists()
             self._sound_manager.get_sound("coin")
             arcade.play_sound(self._sound_manager.sound)
+            arcade.set_background_color(arcade.color.BLACK)            
 
         for kunai in kunai_hit_list:            
-            self._sound_manager.get_sound("kunai")
+            self._sound_manager.get_sound("kunai")            
+            arcade.set_background_color(arcade.color.RED_DEVIL)
+
 
         if self._player.center_y < -100:
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
 
             self._sound_manager.get_sound("gameover")
+            arcade.set_background_color(arcade.color.BLACK) 
             self._score_manager.score = 0
 
         # If the player touches something they shouldn't
