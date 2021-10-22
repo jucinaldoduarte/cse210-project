@@ -3,12 +3,32 @@ from pathlib import Path
 from game import constants
 
 class Sound:
+    """A code template for get the sounds used in the game.
+    
+    Stereotype:
+        Information Holder
+
+    Attributes:
+        self (Sound)        
+    """
     def __init__(self):
+        """The class constructor.
+        
+        Args:
+            self (Sound)
+        """    
         self.sound = None
 
         self.root = Path(__file__).parent
 
     def get_sound(self, action=None):
+        """Called to play sounds in the game.
+        Args: 
+           - self (Sound)
+           - action (String) 
+        Return:
+            - arcade.play_sound     
+        """     
         if action == "coin":
             sound_source = f"{constants.SOUND_DIR}/money_1.mp3"
         elif action == "jump":
