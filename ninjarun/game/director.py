@@ -164,8 +164,8 @@ class Director(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_pressed = False
 
-        self.process_keychange()       
-
+        self.process_keychange()     
+    
     def center_camera_to_player(self):
         """Called to center camera to player.
         Args: 
@@ -180,8 +180,9 @@ class Director(arcade.Window):
         if screen_center_y < 0:
             screen_center_y = 0
         player_centered = screen_center_x, screen_center_y
-
-        self._camera_manager.camera_to_player.move_to(player_centered, 0.2)
+    
+        self._camera_manager.camera_to_player.move_to(player_centered, 0.01) #0.2
+    
 
     def on_update(self, delta_time):
         """Movement and game logic
