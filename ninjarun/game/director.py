@@ -260,6 +260,7 @@ class Director(arcade.Window):
             self._player.center_y = constants.PLAYER_START_Y
 
             self._sound_manager.get_sound("gameover")
+            self._score_manager.score = 0
 
         # If the player touches something they shouldn't
         """
