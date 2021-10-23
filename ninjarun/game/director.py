@@ -291,10 +291,12 @@ class Director(arcade.Window):
         if self._player.center_y < -100:
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
-
-            self._sound_manager.get_sound("gameover")
-            arcade.set_background_color(arcade.color.BLACK) 
             self._score_manager.score = 0
+            self._life = 6 
+            self._life_bar = 940
+            self._track_life = 0
+            self._sound_manager.get_sound("gameover")
+            arcade.set_background_color(arcade.color.BLACK)
 
         # If the player touches something they shouldn't
         """
