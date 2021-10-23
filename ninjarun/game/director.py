@@ -228,7 +228,7 @@ class Director(arcade.Window):
 
         # Update thrown items
 
-        self._ammo_list.update()
+        #self._ammo_list.update()
 
         # See if the moving wall hit a boundary and needs to reverse direction.
         for wall in self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_MOVING_PLATFORMS):
