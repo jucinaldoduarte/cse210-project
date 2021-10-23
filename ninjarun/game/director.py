@@ -78,7 +78,7 @@ class Director(arcade.Window):
         """
         self._player = Player()
         self._life = 6 
-        self._life_bar = 1120
+        self._life_bar = 940
         self._track_life = 0
         self._map_manager.map = self._map_manager.set_map()
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)        
@@ -98,8 +98,12 @@ class Director(arcade.Window):
         self._scene_manager.scene.draw()
         self.camera_to_gui.use()
 
+        """
         for i in range(970, self._life_bar, 30):
             arcade.draw_lrtb_rectangle_filled(i, i + 30, 620, 610, arcade.csscolor.WHITE) 
+        """
+
+        arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 620, 610, arcade.csscolor.WHITE) 
 
         arcade.draw_text(self._score_manager.show_score(), 10, 600, arcade.csscolor.WHITE, 22,)
 
@@ -249,18 +253,22 @@ class Director(arcade.Window):
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI)
             )  
 
-        if len(kunai_hit_list) > self._track_life:
-            if self._life > 0:
-                self._life_bar = self._life_bar - 30
-                self._life = self._life - 1
-            elif self._life <= 0:
-                self._player.center_x = constants.PLAYER_START_X
-                self._player.center_y = constants.PLAYER_START_Y
-                self._sound_manager.get_sound("gameover")
-                arcade.set_background_color(arcade.color.BLACK) 
-                self._score_manager.score = 0
-                self._life = 1120
-            self._player.center_y = constants.PLAYER_START_Y
+        if len(kunai_hit_list) > 0:
+            if len(kunai_hit_list) > self._track_life:
+                if self._life > 0:
+                    if self._life_bar >= 760:
+                        self._life_bar = self._life_bar + 30
+                        self._life = self._life - 1
+                elif self._life <= 0:                                      
+                    self._score_manager.score = 0
+                    self._life = 6 
+                    self._life_bar = 940
+                    self._track_life = 0
+                    self._sound_manager.get_sound("gameover")
+                    arcade.set_background_color(arcade.color.BLACK) 
+                    self._player.center_x = constants.PLAYER_START_X
+                    self._player.center_y = constants.PLAYER_START_Y 
+            
 
         self._track_life =  len(kunai_hit_list)
         
