@@ -90,6 +90,7 @@ class Player(arcade.Sprite):
         for i in range(10):           
             texture = self.get_image(f"{self.root}/images/{self.gender}/dead__00{i}.png")
             self.dead_textures.append(texture)
+
         self.texture = self.image_idle[0]
         self.hit_box = self.texture.hit_box_points        
 
@@ -126,7 +127,12 @@ class Player(arcade.Sprite):
            - delta_time (Arcade)
         Return:
             -     
-        """    
+        """  
+        if self.change_y == 20:
+            self.texture = self.image_jump[self.direction]
+            return
+
+
         if self.is_on_ladder:
             self.climb = True
         if not self.is_on_ladder and self.climb:

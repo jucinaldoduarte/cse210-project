@@ -247,8 +247,7 @@ class Director(arcade.Window):
       
         kunai_hit_list = arcade.check_for_collision_with_list(
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI)
-            )  
-
+            ) 
      
         if len(kunai_hit_list) > 0:
             if len(kunai_hit_list) > self._track_life:
@@ -268,6 +267,9 @@ class Director(arcade.Window):
             else:
                 points = int(coin.properties["Points"])
                 self._score_manager.score += points
+                if self._life < 6:
+                    self._life_bar = self._life_bar - 30
+                    self._life = self._life + 1
             
             coin.remove_from_sprite_lists()
             self._sound_manager.get_sound("coin")
