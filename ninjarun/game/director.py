@@ -80,6 +80,7 @@ class Director(arcade.Window):
         self._life = 6 
         self._life_bar = 940
         self._track_life = 0
+        self._score_manager.score = 0
         self._map_manager.map = self._map_manager.set_map()
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)        
         self._scene_manager.add_player(self._player)
@@ -87,6 +88,7 @@ class Director(arcade.Window):
         self._camera_manager.camera_to_player = self._camera_manager.set_camera()
         self.camera_to_gui = self._camera_manager.set_camera()
         self._map_manager.set_background()
+        arcade.set_background_color(arcade.color.BLACK)
         self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene)        
       
     def on_draw(self):
@@ -259,7 +261,10 @@ class Director(arcade.Window):
                     if self._life_bar >= 760:
                         self._life_bar = self._life_bar + 30
                         self._life = self._life - 1
-                elif self._life <= 0:                                      
+                elif self._life <= 0: 
+                    self._sound_manager.get_sound("gameover") 
+                    self.setup()
+                    """                                    
                     self._score_manager.score = 0
                     self._life = 6 
                     self._life_bar = 940
@@ -268,8 +273,7 @@ class Director(arcade.Window):
                     arcade.set_background_color(arcade.color.BLACK) 
                     self._player.center_x = constants.PLAYER_START_X
                     self._player.center_y = constants.PLAYER_START_Y 
-            
-
+                    """
         self._track_life =  len(kunai_hit_list)
         
         for coin in coin_hit_list:
@@ -289,6 +293,9 @@ class Director(arcade.Window):
             arcade.set_background_color(arcade.color.RED_DEVIL)            
 
         if self._player.center_y < -100:
+            self._sound_manager.get_sound("gameover")
+            self.setup()
+            """
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
             self._score_manager.score = 0
@@ -297,6 +304,7 @@ class Director(arcade.Window):
             self._track_life = 0
             self._sound_manager.get_sound("gameover")
             arcade.set_background_color(arcade.color.BLACK)
+            """
 
         # If the player touches something they shouldn't
         """
