@@ -35,7 +35,7 @@ class Sound:
             sound_source = f"{self.root}/sounds/female_kiai_2.mp3"
             #sound_source = ":resources:sounds/jump1.wav"
         elif action == "kunai":
-            sound_source = ":resources:sounds/hurt4.wav"
+            sound_source = f"{self.root}/sounds/arrow_hit_3.mp3"
         elif action == "gameover":
             sound_source = f"{self.root}/sounds/hard_hit_2.mp3"
         elif action == "throw":

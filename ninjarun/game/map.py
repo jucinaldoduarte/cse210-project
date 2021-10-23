@@ -17,7 +17,8 @@ class Map:
             self (Map)
         """ 
         self.map_path = constants.MAP_DIR
-        self.name = f"{self.map_path}/map.json"
+        self.level = 1
+        self.name = f"{self.map_path}/map1_level_{self.level}.json"
         
         self.layer_options = {
              constants.LAYER_NAME_GROUND: {

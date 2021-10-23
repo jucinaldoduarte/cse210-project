@@ -1,5 +1,6 @@
 import arcade
 from math import atan
+import time
 from game import constants
 from game.player import Player
 from game.score import Score
@@ -73,18 +74,19 @@ class Director(arcade.Window):
         self._ammo_list = []
         self._red_background = False
         self._life = 0
-        self._track_life = 0              
+        self._track_life = 0 
+        self._level = 1            
 
     def setup(self):  
         """Starts the game loop to control the sequence of play.
         Args: self (Director)
         """         
-
         self._player = Player()
         self._life = 6 
         self._life_bar = 940
         self._track_life = 0
         self._score_manager.score = 0
+        self._map_manager.level = self._level
         self._map_manager.map = self._map_manager.set_map()
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)        
         self._scene_manager.add_player(self._player)
@@ -126,6 +128,7 @@ class Director(arcade.Window):
                 self.jump_needs_reset = True
                 self._sound_manager.get_sound("jump")
                 arcade.play_sound(self._sound_manager.sound)
+
         elif self.down_pressed and not self.up_pressed:
             if self._physics_engine_manager.engine.is_on_ladder():
                 self._player.change_y = -constants.PLAYER_MOVEMENT_SPEED
@@ -228,7 +231,7 @@ class Director(arcade.Window):
 
         # Update thrown items
 
-        self._ammo_list.update()
+        # self._ammo_list.update()
 
         # See if the moving wall hit a boundary and needs to reverse direction.
         for wall in self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_MOVING_PLATFORMS):
@@ -270,7 +273,7 @@ class Director(arcade.Window):
                 elif self._life <= 0:  
                     self._sound_manager.get_sound("gameover")
                     self.setup() 
-        self._track_life =  len(kunai_hit_list)  
+        self._track_life = len(kunai_hit_list)  
         
 
         for coin in coin_hit_list:
@@ -291,7 +294,7 @@ class Director(arcade.Window):
         for kunai in kunai_hit_list:  
             kunai.remove_from_sprite_lists()          
             self._sound_manager.get_sound("kunai")
-            arcade.set_background_color(arcade.color.RED_DEVIL) 
+            arcade.set_background_color(arcade.color.RED_DEVIL)
 
         if self._player.center_y < -100:
             self._sound_manager.get_sound("gameover")
@@ -309,10 +312,12 @@ class Director(arcade.Window):
         EXECUTE INSTANCE OF GAME OVER VIEW?
         
             self._sound_manager.get_sound("gameover")
+        """
         # Check if user got to the end of the level
-        if self._player.center_x >= self._map_manager.end_map:
+        if self._player.center_x <= self._map_manager.end_map:
             # Advance to the next level
-            pass
+            self._level += 1
             # Load the next level
-        """       
+            self.setup()
+              
         self.center_camera_to_player()

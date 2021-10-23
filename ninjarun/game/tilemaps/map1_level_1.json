@@ -4,7 +4,7 @@
  "layers":[
         {
          "compression":"zlib",
-         "data":"eJzt2kEKgkAUANDJgog6ZDfoGG2qK3imNtW+UwQtMgoC0ylT0oH34OMwyvgV\/mcWEwIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQPdmo\/e5RcVcnVWDZwEYvnUWwjY8Ytd3MpCQe71swqt22ozV3vf8M2hOv+qH\/RVUyyP39CtgSPQrIGbc8\/vzmnFZmx61DfoVpOT6jLJJEdMPz\/zq8rzGzhr8o1\/9ur9adnTu4Vwxt8+6WbsP15oYkrocU8lzqGI5ziP1EvvGqvNJkJJDEcciTh2slUIfACBNN+gMcyU=",
+         "data":"eJzt2t0JwjAQAOD4AyI6pBs4hi\/WFdxKHcAlBB+sKAi1jdoWm8D3wdGQlvRauCMPCQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoH\/z0fvcsmauyfqHZwFI32YcQhEesRs6GcjIvV624VU7XcZq73v+GfxOvxqG\/RXU20fu6VdASvQrIGYy8Pv3DeOqLj2qCPoV5OT6jKppGbMPz7R1eV5jZw3+0a\/a7q9WPZ17OPezTDKuDZGSphxzyTNVsRwXkXqJfWPd+STIyaGMYxmnHtbKoQ8AkKcbpoxyUw==",
          "encoding":"base64",
          "height":40,
          "id":3,
@@ -1974,7 +1974,7 @@
         }, 
         {
          "compression":"zlib",
-         "data":"eJzt2VtKw0AYBtAWvIDL0Co+encH7iatL25D1A3oUp1AA+OQ23RSUvAc+Og07VyaTv4GXSwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD+j8+Qi5BVyGVHOz3WdbxpA5T46Dj+M\/E87xOPB\/w\/3y3HzpbqFTCtrnujkn51rdpHvWK8dcgm5HXuhcCE2u6NSvo1tUq9mlddr+patZl7ITCgShJL74ty6tXQvVhcq9SrcqtwDp+2uV7m9V0nj+Sp\/1f0FT0\/yzz\/jJPWqrRmpfUpp171vTetVYdUr46Xee1DUNeqx5CXbZ4za9b59vFqL6s7LDchtyF3LbkPeQh5zBzzJ2rHe\/pQfIxoz2G9+Pu3iHVHqp7XxqZrjmpg7pK1bJK545SO2+ZoxLmOxyg5r119+77LXeYb6rPJGCte25R7KvU2Ycaacs6xqX8H05wkOd0mZ9z43iFtz\/E5m5Tu5dxrr2tvN\/tu1zVUA3NUi\/7reKhetyVXyVxjv58p60Hf70ju2Lm1OX1vX\/\/mM8f1Zc5rSvaXX3fPESk=",
+         "data":"eJzt2VtOwkAABVBIfCRsQ0z89IXuwN1U\/HEbBt2AbpEdOCQ0mUz6GqYElHOSG4dKZ6C0lyZMJgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKfjM+QqZB5y3TJOt7Vtr8cAJVYt239GXudj5PmA0\/PdsG021VfAuNrujUr223TVPvqK4dZR4L9oujcq2a\/uKn11WPqKv6JKEkvvi3L6qu9eLO4qfVVuHo7h0zY307x918lf8mx+K\/qKHs8yjz\/DpF2VdlbaTzl91fXctKuOqa\/Op3njY7DpqkXIyzbPmZ11Sn11G3IXct+Qh5DHkEXmnD\/ROD6nj8VqwPgQXrdZhrxFj9NUHf8bmrY1qp61S17LMlk7Tum8Tc4GHOt4jpLj2rZv12e5y3p9+ywz5opf25jnVOp9xAw15ppDs\/keTHOR5HKbnHnje4d0fIj3Waf0XM699trO7fq82\/U1VD1rVJPu67ivr5uSq2StoZ\/PmH3Q9T2SO3duN6fP7dq\/fs9xvxzympL95RcVbxbV",
          "encoding":"base64",
          "height":40,
          "id":1,
@@ -2095,10 +2095,6 @@
          "tilecount":77,
          "tileheight":32,
          "tilewidth":32
-        }, 
-        {
-         "firstgid":721,
-         "source":"pixel_platform_03_tileset_final.tsx"
         }],
  "tilewidth":32,
  "type":"map",
