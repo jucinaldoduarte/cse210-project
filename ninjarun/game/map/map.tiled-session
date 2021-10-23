@@ -152,11 +152,11 @@
             "scaleInDock": 1
         },
         "C:/Users/jucin/Dropbox/BYU/2021 - Fall/CSE 210/cse210-project/ninjarun/game/tilemaps/map.json": {
-            "scale": 2,
-            "selectedLayer": 5,
+            "scale": 0.75,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 6587.5,
-                "y": 1221.5
+                "x": 7702.666666666666,
+                "y": 865.3333333333333
             }
         },
         "C:/Users/jucin/Dropbox/BYU/2021 - Fall/CSE 210/cse210-project/ninjarun/game/tilemaps/map.json#Enemies": {
