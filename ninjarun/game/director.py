@@ -14,7 +14,6 @@ class Director(arcade.Window):
     
     Stereotype:
         Controller
-
     Attributes:
         self._score_manager
         self._map_manager
@@ -75,7 +74,8 @@ class Director(arcade.Window):
     def setup(self):  
         """Starts the game loop to control the sequence of play.
         Args: self (Director)
-        """
+        """         
+
         self._player = Player()
         self._life = 6 
         self._life_bar = 940
@@ -88,7 +88,6 @@ class Director(arcade.Window):
         self._camera_manager.camera_to_player = self._camera_manager.set_camera()
         self.camera_to_gui = self._camera_manager.set_camera()
         self._map_manager.set_background()
-        arcade.set_background_color(arcade.color.BLACK)
         self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene)        
       
     def on_draw(self):
@@ -261,10 +260,10 @@ class Director(arcade.Window):
                     if self._life_bar >= 760:
                         self._life_bar = self._life_bar + 30
                         self._life = self._life - 1
-                elif self._life <= 0: 
-                    self._sound_manager.get_sound("gameover") 
-                    self.setup()
-                    """                                    
+                elif self._life <= 0:  
+                    self._sound_manager.get_sound("gameover")
+                    self.setup() 
+                    """                                   
                     self._score_manager.score = 0
                     self._life = 6 
                     self._life_bar = 940
@@ -274,6 +273,8 @@ class Director(arcade.Window):
                     self._player.center_x = constants.PLAYER_START_X
                     self._player.center_y = constants.PLAYER_START_Y 
                     """
+            
+
         self._track_life =  len(kunai_hit_list)
         
         for coin in coin_hit_list:
@@ -301,8 +302,7 @@ class Director(arcade.Window):
             self._score_manager.score = 0
             self._life = 6 
             self._life_bar = 940
-            self._track_life = 0
-            self._sound_manager.get_sound("gameover")
+            self._track_life = 0           
             arcade.set_background_color(arcade.color.BLACK)
             """
 
@@ -314,9 +314,7 @@ class Director(arcade.Window):
             self._player.change_y = 0
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
-
             self._sound_manager.get_sound("gameover")
-
         # Check if user got to the end of the level
         if self._player.center_x >= self._map_manager.end_map:
             # Advance to the next level
@@ -324,5 +322,3 @@ class Director(arcade.Window):
             # Load the next level
         """       
         self.center_camera_to_player()
-
-
