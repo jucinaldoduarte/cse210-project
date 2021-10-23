@@ -9,12 +9,25 @@ from game.scene import Scene
 from game.score import Score
 from game.sound import Sound
 
-
 def test_set_camera():
+    """Called to test camera.set_camera method.
+        Args: 
+           -            
+        Return:
+            - assert camera.set_camera (arcade.Camera)     
+    """        
     camera = Camera()
     assert camera.set_camera() == arcade.Camera(constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT)
 
 def test_center_camera_to_player():
+    """Called to test camera.center_camera_to_player method.
+        Args: 
+           -            
+        Return:
+            - assert screen_center_x: Int
+            - assert screen_center_y: Int
+
+    """    
     camera = Camera()
     player = Player()
     screen_center_x = player.center_x - (camera.camera_to_player.viewport_width / 2)
@@ -24,11 +37,23 @@ def test_center_camera_to_player():
     assert screen_center_y == 0
 
 def set_map_test():
+    """Called to test map.set_map method.
+        Args: 
+           -            
+        Return:
+            - assert my_map: arcade.loadtilemap
+    """ 
     map = Map()
     my_map = map.set_map()
     assert my_map == arcade.load_tilemap(map.name, constants.TILE_SCALING, map.layer_options)
 
 def set_engine_test():
+    """Called to test physics_engine.set_engine method.
+        Args: 
+           -            
+        Return:
+            - assert engine: arcade.PhysicsEnginePlatformer
+    """ 
     player = Player()
     engine = PhysicsEngine()
     this_scene = Scene()
@@ -44,6 +69,12 @@ def set_engine_test():
         )
 
 def load_image_test():
+    """Called to test player.load_image method.
+        Args: 
+           -            
+        Return:
+            -  assert len(walk_textures): int
+    """ 
     player = Player()
     action = "walk"
     walk_textures = []
@@ -54,6 +85,12 @@ def load_image_test():
     assert len(walk_textures) == 10
 
 def show_score_test():
+    """Called to test score.show_score method.
+        Args: 
+           -            
+        Return:
+            -  assert text: String
+    """ 
     score_manager = Score()
     score_manager.score = 10
 
@@ -61,6 +98,12 @@ def show_score_test():
     assert text == f"Score: {score_manager.score}" 
 
 def get_sound_test():
+    """Called to test sound.get_sound method.
+        Args: 
+           -            
+        Return:
+            -  assert sound_source: String
+    """ 
     action = "coin" 
 
     if action == "coin":
