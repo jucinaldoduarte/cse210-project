@@ -33,6 +33,9 @@ class Map:
             constants.LAYER_NAME_DONT_TOUCH: {
                 "use_spatial_hash": True,
             },
+            constants.LAYER_NAME_THROW: {
+                "use_spatial_hash": True,
+            },
         }
         self.map = arcade.load_tilemap(self.name, constants.TILE_SCALING, self.layer_options)
 

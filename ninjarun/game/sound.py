@@ -17,7 +17,11 @@ class Sound:
             sound_source = f"{self.root}/sounds/female_kiai_2.mp3"
             #sound_source = ":resources:sounds/jump1.wav"
         elif action == "gameover":
-            sound_source = ":resources:sounds/gameover1.wav"
+            sound_source = f"{self.root}/sounds/hard_hit_2.mp3"
+        elif action == "throw":
+            sound_source = f"{self.root}/sounds/shuriken_throw_1.mp3"
+        elif action == "stick":
+            sound_source = f"{self.root}/sounds/shuriken_stick.mp3"
         else:
             sound_source = ""
         self.sound = arcade.load_sound(sound_source)

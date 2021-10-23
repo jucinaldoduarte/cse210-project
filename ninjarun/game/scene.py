@@ -12,3 +12,10 @@ class Scene(Map):
     def set_scene(self, map):        
         return arcade.Scene.from_tilemap(map)
     
+    def add_throw(self, kunai):
+        self.scene.add_sprite_list(constants.LAYER_NAME_THROW, kunai)
+
+    # add a 
+
+    # def add_mouse(self, mouse):
+        #self.scene.add_sprite()

@@ -1,5 +1,6 @@
 import os
 import arcade
+from math import atan
 from game import constants
 from game.player import Player
 from game.score import Score
@@ -7,6 +8,7 @@ from game.sound import Sound
 from game.map import Map
 from game.scene import Scene
 from game.camera import Camera
+from game.mouse import Mouse
 from game.physics_engine import PhysicsEngine
 
 class Director(arcade.Window):
@@ -19,6 +21,7 @@ class Director(arcade.Window):
         self._sound_manager = Sound()
         self._scene_manager = Scene()
         self._camera_manager = Camera()
+        self._mouse_manager = Mouse()    
         self._physics_engine_manager = PhysicsEngine()
         
         # Keys
@@ -26,7 +29,8 @@ class Director(arcade.Window):
         self.right_pressed = False
         self.up_pressed = False
         self.down_pressed = False
-        self.jump_needs_reset = False     
+        self.jump_needs_reset = False 
+        self.set_mouse_visible(True)   
         
         # Reset
         self._player = None
@@ -36,7 +40,8 @@ class Director(arcade.Window):
         self._scene_manager.scene = None        
         self._physics_engine_manager.engine = None        
         self._camera_manager.camera_to_player = None
-        self._camera_manager.camera_to_gui = None             
+        self._camera_manager.camera_to_gui = None 
+        self._ammo_list = []
 
     def setup(self):  
         # Player      
@@ -48,9 +53,15 @@ class Director(arcade.Window):
         # Scene
         self._scene_manager.scene = self._scene_manager.set_scene(self._map_manager.map)
 
-        
+        # Various Objects (game items like Kunai)
+        self._ammo_list = arcade.SpriteList()
+        self._scene_manager.scene.add_sprite_list(self._ammo_list)
         # Add player to scene
         self._scene_manager.add_player(self._player)
+
+        """
+        Add a mouse object instance, pass it into self._scene_manager.add_mouse(self._mouse_object)
+        """
 
         # Add foreground to scene
             # self._scene_manager.scene.add_sprite_list_before("Player", constants.LAYER_NAME_FOREGROUND)
@@ -75,7 +86,8 @@ class Director(arcade.Window):
         # Player camera      
         self._camera_manager.camera_to_player.use() 
 
-        # Draw scene      
+        # Draw scene
+        # If the sprite or spritelist is being loaded into the scene, then it doesn't need to draw      
         self._scene_manager.scene.draw()
 
         # GUI camera
@@ -92,7 +104,7 @@ class Director(arcade.Window):
             elif (
                 self._physics_engine_manager.engine.can_jump(y_distance=10)
                 and not self.jump_needs_reset
-            ):
+                ):
                 self._player.change_y = constants.PLAYER_JUMP_SPEED
                 self.jump_needs_reset = True
                 self._sound_manager.get_sound("jump")
@@ -143,7 +155,8 @@ class Director(arcade.Window):
         elif key == arcade.key.RIGHT or key == arcade.key.D:
             self.right_pressed = False
 
-        self.process_keychange()       
+        self.process_keychange()
+   
 
     def center_camera_to_player(self):
         screen_center_x = self._player.center_x - (self._camera_manager.camera_to_player.viewport_width / 2)
@@ -160,11 +173,11 @@ class Director(arcade.Window):
 
     def on_update(self, delta_time):
         """Movement and game logic"""
-
+        
         # Move the player with the physics engine
         self._physics_engine_manager.engine.update()
 
-        # Update animations
+        # Update player animations for specific movements
         if self._physics_engine_manager.engine.can_jump():
             self._player.can_jump = False
         else:
@@ -186,6 +199,10 @@ class Director(arcade.Window):
         self._scene_manager.scene.update([constants.LAYER_NAME_MOVING_PLATFORMS])
 
         self._scene_manager.scene.update([constants.LAYER_NAME_KUNAI])
+
+        # Update thrown items
+
+        self._ammo_list.update()
 
         # See if the moving wall hit a boundary and needs to reverse direction.
         for wall in self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_MOVING_PLATFORMS):
@@ -211,7 +228,7 @@ class Director(arcade.Window):
             ):
                 wall.change_y *= -1
 
-        # See if we hit any coins
+        # Check for collision with any coins or other objects
         coin_hit_list = arcade.check_for_collision_with_list(
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_COINS)
         )
@@ -258,7 +275,9 @@ class Director(arcade.Window):
             self._player.change_y = 0
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
-
+        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+        EXECUTE INSTANCE OF GAME OVER VIEW?
+        
             self._sound_manager.get_sound("gameover")
 
         # Check if user got to the end of the level
@@ -267,6 +286,8 @@ class Director(arcade.Window):
             pass
             # Load the next level
         """
+
+
         # Position the camera
         self.center_camera_to_player()
 
