@@ -1,3 +1,5 @@
+""" The file required to make Python 
+treat directories containing the file as packages"""
 from game import constants
 from game.camera import Camera
 from game.director import Director

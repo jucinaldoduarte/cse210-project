@@ -1,23 +1,28 @@
 import os
 
-# PATH                      
+"""The responsibility of "constants" module is to keep the information about constants used in the game.
+
+    Stereotype:
+        Information Holder
+
+    Attributes:
+        -       
+"""
+
+""" PATH """                    
 ABSOLUTE_PATH = os.path.abspath(__file__)
 THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
 IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
 SOUND_DIR = os.path.join(THIS_DIRECTORY, 'sounds') 
 MAP_DIR = os.path.join(THIS_DIRECTORY, 'tilemaps')
 
-# Screen Constants
-
+""" SCREEN """ 
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Platformer"
 
-# Constants used to scale our sprites from their original size
-
-TILE_SCALING = 1.5 # 0.5 for resource map
-
-#CHARACTER_SCALING = TILE_SCALING * 2
+""" SCALE """ 
+TILE_SCALING = 1.5
 SCALE = 0.2
 COIN_SCALING = TILE_SCALING
 SHURIKEN_SCALING = 0.1
@@ -27,16 +32,14 @@ KUNAI_SPEED = 8
 SPRITE_PIXEL_SIZE = 32
 GRID_PIXEL_SIZE = SPRITE_PIXEL_SIZE * TILE_SCALING
 
-# Movement speed of player, in pixels per frame
-
-PLAYER_MOVEMENT_SPEED = 9
+""" MOVEMENT """ 
+PLAYER_MOVEMENT_SPEED = 7
 GRAVITY = 1.5
 PLAYER_JUMP_SPEED = 30
-
 PLAYER_START_X = SPRITE_PIXEL_SIZE * TILE_SCALING * 2
 PLAYER_START_Y = SPRITE_PIXEL_SIZE * TILE_SCALING * 2
 
-# Constants used to track if the player is facing left or right
+""" DIRECTION """ 
 RIGHT = 0
 LEFT_FACING = 1
 
@@ -46,6 +49,7 @@ KUNAI_LIST = None
 
 # Layer Name lists for detecting layers in loaded tilemap
 
+""" MAP LAYERS """ 
 LAYER_NAME_GROUND = "Ground"
 LAYER_NAME_MOVING_PLATFORMS = "Moving Platforms"
 LAYER_NAME_PLATFORMS = "Platforms"
@@ -57,3 +61,4 @@ LAYER_NAME_FOREGROUND = "Foreground"
 LAYER_NAME_DONT_TOUCH = "Don't Touch"
 LAYER_NAME_KUNAI = "Kunais"
 LAYER_NAME_THROW = "Throw"
+LAYER_NAME_ENEMIES = "Enemies"
