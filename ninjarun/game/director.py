@@ -99,11 +99,6 @@ class Director(arcade.Window):
         self._scene_manager.scene.draw()
         self.camera_to_gui.use()
 
-        """
-        for i in range(970, self._life_bar, 30):
-            arcade.draw_lrtb_rectangle_filled(i, i + 30, 620, 610, arcade.csscolor.WHITE) 
-        """
-
         arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 620, 610, arcade.csscolor.WHITE) 
 
         arcade.draw_text(self._score_manager.show_score(), 10, 600, arcade.csscolor.WHITE, 22,)
@@ -254,6 +249,7 @@ class Director(arcade.Window):
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_KUNAI)
             )  
 
+     
         if len(kunai_hit_list) > 0:
             if len(kunai_hit_list) > self._track_life:
                 if self._life > 0:
@@ -263,20 +259,9 @@ class Director(arcade.Window):
                 elif self._life <= 0:  
                     self._sound_manager.get_sound("gameover")
                     self.setup() 
-                    """                                   
-                    self._score_manager.score = 0
-                    self._life = 6 
-                    self._life_bar = 940
-                    self._track_life = 0
-                    self._sound_manager.get_sound("gameover")
-                    arcade.set_background_color(arcade.color.BLACK) 
-                    self._player.center_x = constants.PLAYER_START_X
-                    self._player.center_y = constants.PLAYER_START_Y 
-                    """
-            
-
-        self._track_life =  len(kunai_hit_list)
+        self._track_life =  len(kunai_hit_list)  
         
+
         for coin in coin_hit_list:
             if "Points" not in coin.properties:
                 print("Warning, collected a coin without a Points property.")
@@ -289,22 +274,14 @@ class Director(arcade.Window):
             arcade.play_sound(self._sound_manager.sound)
             arcade.set_background_color(arcade.color.BLACK)            
 
-        for kunai in kunai_hit_list:            
-            self._sound_manager.get_sound("kunai")            
-            arcade.set_background_color(arcade.color.RED_DEVIL)            
+        for kunai in kunai_hit_list:  
+            kunai.remove_from_sprite_lists()          
+            self._sound_manager.get_sound("kunai")
+            arcade.set_background_color(arcade.color.RED_DEVIL) 
 
         if self._player.center_y < -100:
             self._sound_manager.get_sound("gameover")
             self.setup()
-            """
-            self._player.center_x = constants.PLAYER_START_X
-            self._player.center_y = constants.PLAYER_START_Y
-            self._score_manager.score = 0
-            self._life = 6 
-            self._life_bar = 940
-            self._track_life = 0           
-            arcade.set_background_color(arcade.color.BLACK)
-            """
 
         # If the player touches something they shouldn't
         """
