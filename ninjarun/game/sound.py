@@ -7,6 +7,7 @@ class Sound:
     
     Stereotype:
         Information Holder
+        Service Provider
 
     Attributes:
         self (Sound)        

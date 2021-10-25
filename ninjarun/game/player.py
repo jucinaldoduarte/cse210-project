@@ -142,7 +142,7 @@ class Player(arcade.Sprite):
             if self.present_texture > 7:
                 self.present_texture = 0
         if self.climb:
-            self.texture = self.climb_textures[self.present_texture // 4]            
+            self.texture = self.climb_textures[(-self.present_texture // 4)]            
             return
       
         if self.change_x < 0 and self.direction == constants.RIGHT:

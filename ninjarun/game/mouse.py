@@ -3,9 +3,25 @@ from game import constants
 from pathlib import Path
 
 class Mouse(arcade.Sprite):
-    """Mouse Sprite"""
+    """Class to manage mouse input
+    
+    Stereotype:
+        Information Holder
+        Coordinator
 
+    Attributes:
+        self (Sprite)        
+    """
     def __init__(self):
+        """ The class constructor
+
+        Attributes:
+            self.ammo_count - for throwable "ammo"
+            self.ammo_count - a list for ammo sprites
+            self.center_x - starting point for thrown object
+            self.center_y - starting point for thrown object        
+        """
+
         super().__init__()
         self._ammo_count = 0
         self._ammo_list = []
@@ -46,7 +62,6 @@ class Mouse(arcade.Sprite):
 
         # Add the bullet to the appropriate lists
         self._ammo_list.append(kunai)
-        """
 
     
     def create_ammo(self, x, y, button, modifiers):
@@ -74,3 +89,4 @@ class Mouse(arcade.Sprite):
         self._ammo_list.append(kunai)
 
         return self._ammo_list
+        """

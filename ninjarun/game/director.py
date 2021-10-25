@@ -75,7 +75,7 @@ class Director(arcade.Window):
         self._red_background = False
         self._life = 0
         self._track_life = 0 
-        self._level = 1            
+        self._level = 2            
 
     def setup(self):  
         """Starts the game loop to control the sequence of play.
