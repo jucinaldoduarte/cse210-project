@@ -234,6 +234,7 @@ class Director(arcade.Window):
         self._scene_manager.scene.update([constants.LAYER_NAME_KUNAI])
         self._scene_manager.scene.update([constants.LAYER_NAME_ENEMIES])
 
+        """Walls"""
         for wall in self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_MOVING_PLATFORMS):
 
             if (
