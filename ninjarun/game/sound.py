@@ -44,6 +44,8 @@ class Sound:
         elif action == "stick":
             sound_source = f"{self.root}/sounds/shuriken_stick.mp3"
             sound_source = ":resources:sounds/gameover3.wav"
+        elif action == "win":
+            sound_source = constants.WIN_SOUND
         else:
             sound_source = ""
         self.sound = arcade.load_sound(sound_source)

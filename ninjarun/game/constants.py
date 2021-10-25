@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 """The responsibility of "constants" module is to keep the information about constants used in the game.
 
@@ -15,6 +16,8 @@ THIS_DIRECTORY = os.path.dirname(ABSOLUTE_PATH)
 IMAGE_DIR = os.path.join(THIS_DIRECTORY, 'images') 
 SOUND_DIR = os.path.join(THIS_DIRECTORY, 'sounds') 
 MAP_DIR = os.path.join(THIS_DIRECTORY, 'tilemaps')
+
+ROOT = Path(__file__).parent
 
 """ SCREEN """ 
 SCREEN_WIDTH = 1200
@@ -62,3 +65,8 @@ LAYER_NAME_DONT_TOUCH = "Don't Touch"
 LAYER_NAME_KUNAI = "Kunais"
 LAYER_NAME_THROW = "Throw"
 LAYER_NAME_ENEMIES = "Enemies"
+
+"""ENG GAME"""
+PLAY_AGAIN = 14291.0
+YOU_WIN = 13969.0
+WIN_SOUND = f"{ROOT}/sounds/win_sound.mp3"

@@ -75,7 +75,8 @@ class Director(arcade.Window):
         self._red_background = False
         self._life = 0
         self._track_life = 0 
-        self._level = 2            
+        self._level = 2  
+               
 
     def setup(self):  
         """Starts the game loop to control the sequence of play.
@@ -94,7 +95,10 @@ class Director(arcade.Window):
         self._camera_manager.camera_to_player = self._camera_manager.set_camera()
         self.camera_to_gui = self._camera_manager.set_camera()
         self._map_manager.set_background()
-        self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene)        
+        self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene) 
+        arcade.set_background_color(arcade.color.BLACK)  
+
+           
       
     def on_draw(self):
         """Render the screen.
@@ -111,6 +115,12 @@ class Director(arcade.Window):
         arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 620, 610, arcade.csscolor.WHITE) 
 
         arcade.draw_text(self._score_manager.show_score(), 10, 600, arcade.csscolor.WHITE, 22,)
+
+        if self._player.center_x > constants.YOU_WIN:
+            arcade.set_background_color(arcade.color.CYAN)
+            arcade.draw_text("YOU WIN!", constants.SCREEN_WIDTH / 2, constants.SCREEN_HEIGHT / 2 + 300, arcade.color.WHITE, 96,
+                         width=400, align="center", anchor_y="top") 
+             
 
     def process_keychange(self):
         """Called whenever a key is pressed.
@@ -298,7 +308,14 @@ class Director(arcade.Window):
 
         if self._player.center_y < -100:
             self._sound_manager.get_sound("gameover")
-            self.setup()
+            self.setup()        
+
+        if self._player.center_x == 100.:
+            self._sound_manager.get_sound("win")
+            print(self._player.center_x)
+
+        if self._player.center_x > constants.YOU_WIN and self._player.center_x < constants.YOU_WIN + 10:
+            self._sound_manager.get_sound("win")
 
         # If the player touches something they shouldn't
         """
