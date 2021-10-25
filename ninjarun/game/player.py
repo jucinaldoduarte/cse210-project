@@ -132,7 +132,6 @@ class Player(arcade.Sprite):
             self.texture = self.image_jump[self.direction]
             return
 
-
         if self.is_on_ladder:
             self.climb = True
         if not self.is_on_ladder and self.climb:

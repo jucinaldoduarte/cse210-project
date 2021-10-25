@@ -24,7 +24,7 @@ class Score:
         Return:
             -  text (String)   
         """    
-        text = f"Score: {self.score}"
+        text = f"Coins: {self.score}"
         return text
         
 

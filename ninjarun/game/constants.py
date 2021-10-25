@@ -22,7 +22,7 @@ ROOT = Path(__file__).parent
 """ SCREEN """ 
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 650
-SCREEN_TITLE = "Platformer"
+SCREEN_TITLE = "Ninja Run"
 
 """ SCALE """ 
 TILE_SCALING = 1.5

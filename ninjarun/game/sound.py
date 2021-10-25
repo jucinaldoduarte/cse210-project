@@ -47,9 +47,10 @@ class Sound:
         elif action == "win":
             sound_source = constants.WIN_SOUND
         else:
-            sound_source = ""
-        self.sound = arcade.load_sound(sound_source)
-        return arcade.play_sound(self.sound)
+            sound_source = None
+        if sound_source != None:
+            self.sound = arcade.load_sound(sound_source)
+            return arcade.play_sound(self.sound)
         
 
 
