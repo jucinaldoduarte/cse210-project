@@ -301,18 +301,18 @@ class Director(arcade.Window):
             self.setup()
 
         # If the player touches something they shouldn't
-        """
+        
         if arcade.check_for_collision_with_list(
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_DONT_TOUCH)):
             self._player.change_x = 0
             self._player.change_y = 0
             self._player.center_x = constants.PLAYER_START_X
             self._player.center_y = constants.PLAYER_START_Y
-        &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
-        EXECUTE INSTANCE OF GAME OVER VIEW?
+        
+        #EXECUTE INSTANCE OF GAME OVER VIEW?
         
             self._sound_manager.get_sound("gameover")
-        """
+        
         # Check if user got to the end of the level
         if self._player.center_x <= self._map_manager.end_map:
             # Advance to the next level
