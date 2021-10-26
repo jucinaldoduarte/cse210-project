@@ -24,6 +24,9 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 650
 SCREEN_TITLE = "Ninja Run"
 
+"""START BACKGROUND"""
+START_BACKGROUND = f"{ROOT}/images/start_background.jpg"
+
 """ SCALE """ 
 TILE_SCALING = 1.5
 SCALE = 0.2

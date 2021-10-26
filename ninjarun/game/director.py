@@ -78,7 +78,8 @@ class Director(arcade.Window):
         self._red_background = False
         self._life = 0
         self._track_life = 0 
-        self._level = 2                 
+        self._level = 2 
+        self._start_background = None                
 
     def setup(self):  
         """Starts the game loop to control the sequence of play.
@@ -98,20 +99,34 @@ class Director(arcade.Window):
         self.camera_to_gui = self._camera_manager.set_camera()
         self._map_manager.set_background()
         self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene) 
-        arcade.set_background_color(arcade.color.BLACK)  
+        arcade.set_background_color(arcade.color.BLACK)
+        self._start_background = arcade.load_texture(constants.START_BACKGROUND)  
       
     def on_draw(self):
         """Render the screen.
          Args: self (Director)
         """        
         arcade.start_render()
+        """Start"""
+        if self._player.center_x < 327.0:
+            arcade.draw_lrwh_rectangle_textured(0, 0,
+                                            constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,
+                                            self._start_background)        
+
+        """Cameras and Scene"""
         self._camera_manager.camera_to_player.use() 
         self._scene_manager.scene.draw()
         self.camera_to_gui.use()
 
-        arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 620, 610, arcade.csscolor.DODGER_BLUE)
-        arcade.draw_text(self._score_manager.show_score(), 10, 610, arcade.csscolor.DODGER_BLUE, 16,)
+        print(self._player.center_x)
 
+        """Score"""
+        arcade.draw_text(self._score_manager.show_score(), 10, 610, arcade.csscolor.WHITE, 16,)
+
+        """Life Bar"""
+        arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 640, 630, arcade.csscolor.WHITE)
+
+        """End Game"""
         if self._player.center_x > constants.YOU_WIN:
             arcade.set_background_color(arcade.color.CYAN)
             arcade.draw_text("YOU WIN!", constants.SCREEN_WIDTH / 2 - 200, constants.SCREEN_HEIGHT / 2 + 300, arcade.color.BLACK, 96,
