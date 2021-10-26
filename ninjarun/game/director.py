@@ -102,12 +102,14 @@ class Director(arcade.Window):
         arcade.set_background_color(arcade.color.BLACK)
         self._start_background = arcade.load_texture(constants.START_BACKGROUND) 
         self._end_background = arcade.load_texture(constants.END_BACKGROUND) 
+        
       
     def on_draw(self):
         """Render the screen.
          Args: self (Director)
         """        
         arcade.start_render()
+
         """Start"""
         if self._player.center_x < 327.0:
             arcade.draw_lrwh_rectangle_textured(0, 0,
@@ -117,7 +119,7 @@ class Director(arcade.Window):
         if self._player.center_x > constants.YOU_WIN:            
             arcade.draw_lrwh_rectangle_textured(0, 55,
                                             constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,
-                                            self._end_background)       
+                                            self._end_background) 
 
         """Cameras and Scene"""
         self._camera_manager.camera_to_player.use() 
@@ -223,7 +225,7 @@ class Director(arcade.Window):
           - self (Director)
           - delta
           - delta_time          
-        """    
+        """ 
 
         """Physics Engine"""   
         self._physics_engine_manager.engine.update()
@@ -302,7 +304,8 @@ class Director(arcade.Window):
             coin.remove_from_sprite_lists()
             self._sound_manager.get_sound("coin")
             arcade.play_sound(self._sound_manager.sound)
-            arcade.set_background_color(arcade.color.BLACK)            
+            arcade.set_background_color(arcade.color.BLACK) 
+                     
 
         for kunai in kunai_hit_list:  
             kunai.remove_from_sprite_lists()          
