@@ -116,9 +116,7 @@ class Director(arcade.Window):
         """Cameras and Scene"""
         self._camera_manager.camera_to_player.use() 
         self._scene_manager.scene.draw()
-        self.camera_to_gui.use()
-
-        print(self._player.center_x)
+        self.camera_to_gui.use()        
 
         """Score"""
         arcade.draw_text(self._score_manager.show_score(), 10, 610, arcade.csscolor.WHITE, 16,)

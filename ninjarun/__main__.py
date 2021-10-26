@@ -9,6 +9,7 @@ def main():
      -
     """    
     director = Director()
+    
     director.setup()
     arcade.run()
 
