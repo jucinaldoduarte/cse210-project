@@ -128,9 +128,7 @@ class Director(arcade.Window):
         arcade.draw_text(self._score_manager.show_score(), 10, 610, arcade.csscolor.WHITE, 16,)
 
         """Life Bar"""
-        arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 640, 630, arcade.csscolor.WHITE)
-
-        
+        arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 640, 630, arcade.csscolor.WHITE)        
 
     def process_keychange(self):
         """Called whenever a key is pressed.
@@ -288,7 +286,7 @@ class Director(arcade.Window):
                         self._life = self._life - 1
                 elif self._life <= 0:  
                     self._sound_manager.get_sound("gameover")
-                    #self.setup() 
+                    self.setup() 
         self._track_life = len(kunai_hit_list)  
         
 
