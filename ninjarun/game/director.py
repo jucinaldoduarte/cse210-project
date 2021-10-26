@@ -100,7 +100,8 @@ class Director(arcade.Window):
         self._map_manager.set_background()
         self._physics_engine_manager.set_engine(self._player, self._scene_manager.scene.get_sprite_list, self._scene_manager.scene) 
         arcade.set_background_color(arcade.color.BLACK)
-        self._start_background = arcade.load_texture(constants.START_BACKGROUND)  
+        self._start_background = arcade.load_texture(constants.START_BACKGROUND) 
+        self._end_background = arcade.load_texture(constants.END_BACKGROUND) 
       
     def on_draw(self):
         """Render the screen.
@@ -111,7 +112,12 @@ class Director(arcade.Window):
         if self._player.center_x < 327.0:
             arcade.draw_lrwh_rectangle_textured(0, 0,
                                             constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,
-                                            self._start_background)        
+                                            self._start_background) 
+        """End Game"""
+        if self._player.center_x > constants.YOU_WIN:            
+            arcade.draw_lrwh_rectangle_textured(0, 55,
+                                            constants.SCREEN_WIDTH, constants.SCREEN_HEIGHT,
+                                            self._end_background)       
 
         """Cameras and Scene"""
         self._camera_manager.camera_to_player.use() 
@@ -124,11 +130,7 @@ class Director(arcade.Window):
         """Life Bar"""
         arcade.draw_lrtb_rectangle_filled(self._life_bar, 1120, 640, 630, arcade.csscolor.WHITE)
 
-        """End Game"""
-        if self._player.center_x > constants.YOU_WIN:
-            arcade.set_background_color(arcade.color.CYAN)
-            arcade.draw_text("YOU WIN!", constants.SCREEN_WIDTH / 2 - 200, constants.SCREEN_HEIGHT / 2 + 300, arcade.color.BLACK, 96,
-                         width=400, align="center", anchor_y="top") 
+        
 
     def process_keychange(self):
         """Called whenever a key is pressed.
@@ -286,7 +288,7 @@ class Director(arcade.Window):
                         self._life = self._life - 1
                 elif self._life <= 0:  
                     self._sound_manager.get_sound("gameover")
-                    self.setup() 
+                    #self.setup() 
         self._track_life = len(kunai_hit_list)  
         
 
@@ -310,13 +312,12 @@ class Director(arcade.Window):
             self._sound_manager.get_sound("kunai")
             arcade.set_background_color(arcade.color.RED_DEVIL)
 
-
         """ Fall """
         if self._player.center_y < -100:
             self._sound_manager.get_sound("gameover")
             self.setup()
 
-        """Don't touch"""        
+        """Surprise, you dead"""        
         if arcade.check_for_collision_with_list(
             self._player, self._scene_manager.scene.get_sprite_list(constants.LAYER_NAME_DONT_TOUCH)):
             self._sound_manager.get_sound("gameover")
