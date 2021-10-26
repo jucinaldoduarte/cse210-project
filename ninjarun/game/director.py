@@ -287,8 +287,7 @@ class Director(arcade.Window):
                 elif self._life <= 0:  
                     self._sound_manager.get_sound("gameover")
                     self.setup() 
-        self._track_life = len(kunai_hit_list)  
-        
+        self._track_life = len(kunai_hit_list) 
 
         for coin in coin_hit_list:
             if "Points" not in coin.properties:
